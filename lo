@@ -1,0 +1,2 @@
+sudo chmod 666 /dev/usb/lp2
+sudo cp $1 /dev/usb/lp2
