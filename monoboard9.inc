@@ -4,6 +4,8 @@
 		;
 		; by Natasza Biecek, 2017, http://bienata.waw.pl #slowanawiatr 
 		;
+		; internal CLK requency in Hz, we have 1MHz here
+CLK2FREQ	.eq	1000000				
 		;
 		; address decoder
 VIA1		.eq	$E000
@@ -14,7 +16,7 @@ ROM_BEGIN	.eq	$E000
 ROM_END		.eq	$FFFF
 
 RAM_BEGIN	.eq	$0000
-RAM_END		.eq	RAM_BEGIN+3*8192
+RAM_END		.eq	RAM_BEGIN+1*8192
 		;
 USER_STACK	.eq	RAM_END-1
 		;
