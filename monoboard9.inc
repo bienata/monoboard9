@@ -16,7 +16,7 @@ ROM_BEGIN	.eq	$E000
 ROM_END		.eq	$FFFF
 
 RAM_BEGIN	.eq	$0000
-RAM_END		.eq	RAM_BEGIN+1*8192
+RAM_END		.eq	RAM_BEGIN+4*8192
 		;
 SYSTEM_STACK	.eq	RAM_END-1	; for procedures calls
 USER_STACK	.eq	SYSTEM_STACK-1-512	; for user data
