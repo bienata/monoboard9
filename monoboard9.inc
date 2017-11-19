@@ -84,6 +84,18 @@ ACR_PALE		.eq	1	; latch enabled
 ACR_PBLD		.eq	0	; latch disabled
 ACR_PBLE		.eq	2	; latch enabled
 		;
+		;
+		; ACIA related stuff
+		; registers as described on p.6-24 
+		; https://www.cselettronica.com/datasheet/UM6551.pdf
+TDR		.eq 	0	; transmit data register (for write operation)
+RDR		.eq		0 	; receiver data register (for reading)
+PRESET	.eq		1	; programmed reset / write
+STATR	.eq		1	; status register / read
+CMDREG	.eq		2	; command register r/w
+CTLREG	.eq		3	; control register r/w	
+		;
+		;
 		; helper & macros
 		;
 		; system jump table
