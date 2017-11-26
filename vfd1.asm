@@ -53,23 +53,23 @@ vfdInit:
 vfdData:
 		; D0-7, E^, RS=1
 		; 
-		sta 	VIA1+ORA
+		sta 	VIA2+ORB
 		lda #$03
-		sta 	VIA1+ORB	; E=1, RS=1
+		sta 	VIA2+ORA	; E=1, RS=1
 		nop
 		lda #$00	
-		sta 	VIA1+ORB	; E=0, RS=0
+		sta 	VIA2+ORA	; E=0, RS=0
 		rts		; of vfdData
 
 vfdCommand:
 		; D0-7, E^, RS=0
 		; 
-		sta 	VIA1+ORA
+		sta 	VIA2+ORB
 		lda #$01
-		sta 	VIA1+ORB	; E=1, RS=0
+		sta 	VIA2+ORA	; E=1, RS=0
 		nop
 		lda #$00	
-		sta 	VIA1+ORB	; E=0, RS=0
+		sta 	VIA2+ORA	; E=0, RS=0
 		nop
 		rts					; of vfdCommand
 
@@ -88,16 +88,16 @@ main_prog:
 		lds	#SYSTEM_STACK
 		ldu	#USER_STACK
 
-		; PA setup - all out, D0..D7 of CU20025
-		lda	#PA7OUT+PA6OUT+PA5OUT+PA4OUT+PA3OUT+PA2OUT+PA1OUT+PA0OUT
-		sta	VIA1+DDRA
+		; PB setup - all out, D0..D7 of CU20025
+		lda	#$FF
+		sta	VIA2+DDRB
 		
-		; PB setup, outs: PB0 - E, PB1 - RS
-		lda 	#PB0OUT+PB1OUT
-		sta 	VIA1+DDRB
+		; PA setup, outs: PA0 - E, PA1 - RS
+		lda 	#$FF
+		sta 	VIA2+DDRA
 		clra
-		sta 	VIA1+ORA
-		sta 	VIA1+ORB
+		sta 	VIA2+ORA
+		sta 	VIA2+ORB
 
 		jsr		vfdInit
 		jsr 	delay	
