@@ -40,6 +40,7 @@ SR		.eq 10
 ACR		.eq 11
 PCR		.eq 12
 IFR		.eq 13
+IER		.eq 14		; interrupt enable register
 		;
 PB0OUT		.eq 	1<<0
 PB1OUT		.eq 	1<<1
